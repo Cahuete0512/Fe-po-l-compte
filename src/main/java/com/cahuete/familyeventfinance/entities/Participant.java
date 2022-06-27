@@ -9,9 +9,13 @@ import java.util.List;
 @Setter
 public class Participant {
 
-    private int id;
+    private Long id;
     private String nom;
     private String prenom;
+    private String email;
     private List<Evenement> evenement;
+
+    public Participant(){
+    }
 
 }

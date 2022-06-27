@@ -8,8 +8,13 @@ import java.util.List;
 @Getter
 @Setter
 public class Paiement {
-    private int id;
+    private Long id;
     private float montant;
+    private String libelle;
     private List<Participant> participants;
     private Evenement evenement;
+
+    public Paiement() {
+    }
 }
+

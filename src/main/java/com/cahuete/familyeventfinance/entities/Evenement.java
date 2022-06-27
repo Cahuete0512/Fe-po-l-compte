@@ -1,18 +1,27 @@
 package com.cahuete.familyeventfinance.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @Setter
+@Entity
+@AllArgsConstructor
 public class Evenement {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String libelle;
-    private LocalDate date;
+    private LocalDate date_creation;
     private String lieu;
-    private List<Participant> participants;
+
+    public Evenement() {
+    }
+//    private List<Participant> participants;
 }
