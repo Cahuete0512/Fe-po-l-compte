@@ -3,18 +3,22 @@ package com.cahuete.FePolcompte.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.*;
 
 @Getter
 @Setter
+@Entity
 public class Paiement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private float montant;
     private String libelle;
-    private List<Participant> participants;
-    private Evenement evenement;
 
-    public Paiement() {
-    }
+    @ManyToOne
+    private Participant participant;
+
+    @ManyToOne
+    private Evenement evenement;
 }
 

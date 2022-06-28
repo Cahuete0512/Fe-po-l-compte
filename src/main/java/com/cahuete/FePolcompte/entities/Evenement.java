@@ -1,17 +1,20 @@
 package com.cahuete.FePolcompte.entities;
 
-import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 public class Evenement {
 
     @Id
@@ -21,10 +24,10 @@ public class Evenement {
     private LocalDate date_creation;
     private String lieu;
 
-    public Evenement() {
-        this.libelle = libelle;
-        this.date_creation = date_creation;
-        this.lieu = lieu;
-    }
-//    private List<Participant> participants;
+    @ManyToMany
+    private List<Participant> participants;
+
+    @OneToMany
+    private List<Paiement> paiementList;
+
 }

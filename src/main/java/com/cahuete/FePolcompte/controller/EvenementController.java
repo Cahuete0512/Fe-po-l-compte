@@ -1,10 +1,12 @@
 package com.cahuete.FePolcompte.controller;
 
 import com.cahuete.FePolcompte.entities.Evenement;
+import com.cahuete.FePolcompte.entities.Participant;
 import com.cahuete.FePolcompte.repository.EvenementRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin (originPatterns = "*")
@@ -41,7 +43,18 @@ public class EvenementController {
      */
     @GetMapping("/evenement/{id}")
     public Optional<Evenement> getEvenement(@PathVariable Long id) {
-        return evenementRepo.findById(id); }
+        return evenementRepo.findById(id);
+    }
+
+    @GetMapping("/evenement/{id}/participants")
+    public List<Participant> getParticipantsByEvenement(@PathVariable Long id){
+        Evenement evenement = new Evenement();
+        Optional<Evenement> evenementOpt = evenementRepo.findById(id);
+        if(evenementOpt.isPresent()){
+            evenement = evenementOpt.get();
+        }
+        return evenement.getParticipants();
+    }
 
     /**
      * Insertion d'un évenement
