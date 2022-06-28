@@ -1,4 +1,4 @@
-package com.cahuete.familyeventfinance.entities;
+package com.cahuete.FePolcompte.entities;
 
 import lombok.Getter;
 import lombok.Setter;

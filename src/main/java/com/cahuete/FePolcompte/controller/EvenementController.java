@@ -1,19 +1,11 @@
-package com.cahuete.familyeventfinance.controller;
+package com.cahuete.FePolcompte.controller;
 
-import com.cahuete.familyeventfinance.entities.Evenement;
-import com.cahuete.familyeventfinance.repository.EvenementRepo;
+import com.cahuete.FePolcompte.entities.Evenement;
+import com.cahuete.FePolcompte.repository.EvenementRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @CrossOrigin (originPatterns = "*")
 @RestController

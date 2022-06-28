@@ -1,4 +1,4 @@
-package com.cahuete.familyeventfinance.entities;
+package com.cahuete.FePolcompte.entities;
 
 import lombok.*;
 
@@ -22,6 +22,9 @@ public class Evenement {
     private String lieu;
 
     public Evenement() {
+        this.libelle = libelle;
+        this.date_creation = date_creation;
+        this.lieu = lieu;
     }
 //    private List<Participant> participants;
 }

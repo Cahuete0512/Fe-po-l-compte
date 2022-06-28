@@ -1,4 +1,4 @@
-package com.cahuete.familyeventfinance;
+package com.cahuete.FePolcompte;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

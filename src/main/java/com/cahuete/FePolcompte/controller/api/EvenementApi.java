@@ -1,4 +1,4 @@
-package com.cahuete.familyeventfinance.controller.api;
+package com.cahuete.FePolcompte.controller.api;
 
 
 import io.swagger.annotations.Api;
