@@ -1,28 +1,32 @@
 package com.cahuete.FePolcompte.controller;
 
+import com.cahuete.FePolcompte.dto.EventDTO;
+import com.cahuete.FePolcompte.dto.ParticipantDTO;
+import com.cahuete.FePolcompte.dto.ResumedEvent;
 import com.cahuete.FePolcompte.entities.Evenement;
-import com.cahuete.FePolcompte.entities.Participant;
 import com.cahuete.FePolcompte.repository.EvenementRepo;
+import com.cahuete.FePolcompte.service.EvenementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @CrossOrigin (originPatterns = "*")
 @RestController
 public class EvenementController {
 
-    private final EvenementRepo evenementRepo;
+    private final EvenementService evenementService;
 
     /**
      *
-     * @param evenementRepo
+     * @param evenementService
      */
     @Autowired
-    public EvenementController(EvenementRepo evenementRepo) {
-
-        this.evenementRepo = evenementRepo;
+    public EvenementController(EvenementService evenementService) {
+        this.evenementService = evenementService;
     }
 
     /**
@@ -31,9 +35,8 @@ public class EvenementController {
      */
     @CrossOrigin (originPatterns = "*")
     @GetMapping("/evenement")
-    public Iterable<Evenement> getEvenements(){
-
-        return evenementRepo.findAll();
+    public List<ResumedEvent> getEvenements(){
+        return evenementService.getAll();
     }
 
     /**
@@ -42,40 +45,33 @@ public class EvenementController {
      * @return un évenement précis
      */
     @GetMapping("/evenement/{id}")
-    public Optional<Evenement> getEvenement(@PathVariable Long id) {
-        return evenementRepo.findById(id);
+    public EventDTO getEvenement(@PathVariable(name = "id") Long id) {
+        return evenementService.findById(id);
     }
 
     @GetMapping("/evenement/{id}/participants")
-    public List<Participant> getParticipantsByEvenement(@PathVariable Long id){
-        Evenement evenement = new Evenement();
-        Optional<Evenement> evenementOpt = evenementRepo.findById(id);
-        if(evenementOpt.isPresent()){
-            evenement = evenementOpt.get();
-        }
-        return evenement.getParticipants();
+    public List<ParticipantDTO> getParticipantsByEvenement(@PathVariable(name = "id") Long id){
+        return evenementService.getParticipantsByEvenementId(id);
     }
 
     /**
      * Insertion d'un évenement
-     * @param evenement
+     * @param eventDTO
+     * @return
      */
-    @PostMapping("/evenement")
-    public Evenement creerEvenement(@RequestBody Evenement evenement){
-
-        return evenementRepo.save(evenement);
+    @PostMapping("/evenement/create")
+    public EventDTO creatEvent(@RequestBody EventDTO eventDTO){
+        return evenementService.createEvenement(eventDTO);
     }
 
     /**
      * Modification d'un évenement
-     * @param evenement
-     * @param id
+     * @param eventDTO
      */
     @CrossOrigin (originPatterns = "*")
-    @PutMapping("/evenement/{id}")
-    public Evenement modifierEvenement(@RequestBody Evenement evenement, @PathVariable Long id){
-        evenement.setId(id);
-        return evenementRepo.save(evenement);
+    @PutMapping("/evenement")
+    public EventDTO modifyEvent(@RequestBody EventDTO eventDTO){
+        return evenementService.modify(eventDTO);
     }
 
     /**
@@ -84,7 +80,7 @@ public class EvenementController {
      */
     @DeleteMapping("/evenement/suppEvenement/{id}")
     public void supprimerEvenement(@PathVariable Long id){
-        evenementRepo.deleteById(id);
+        evenementService.delete(id);
     }
 //
 //    @GetMapping("/insert")
