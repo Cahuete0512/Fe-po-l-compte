@@ -1,18 +1,13 @@
-package com.cahuete.FePolcompte.controller;
+package com.cahuete.fepolcompte.controller;
 
-import com.cahuete.FePolcompte.dto.EventDTO;
-import com.cahuete.FePolcompte.dto.ParticipantDTO;
-import com.cahuete.FePolcompte.dto.ResumedEvent;
-import com.cahuete.FePolcompte.entities.Evenement;
-import com.cahuete.FePolcompte.repository.EvenementRepo;
-import com.cahuete.FePolcompte.service.EvenementService;
+import com.cahuete.fepolcompte.dto.EventDTO;
+import com.cahuete.fepolcompte.dto.ParticipantDTO;
+import com.cahuete.fepolcompte.dto.ResumedEvent;
+import com.cahuete.fepolcompte.service.EvenementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @CrossOrigin (originPatterns = "*")
 @RestController
@@ -49,6 +44,12 @@ public class EvenementController {
         return evenementService.findById(id);
     }
 
+    /**
+     * Récupération de la liste des participants pour un évènement précis
+     * @param id
+     * @return les participants d'un évènement précise
+     */
+    @CrossOrigin (originPatterns = "*")
     @GetMapping("/evenement/{id}/participants")
     public List<ParticipantDTO> getParticipantsByEvenement(@PathVariable(name = "id") Long id){
         return evenementService.getParticipantsByEvenementId(id);
@@ -69,7 +70,7 @@ public class EvenementController {
      * @param eventDTO
      */
     @CrossOrigin (originPatterns = "*")
-    @PutMapping("/evenement")
+    @PutMapping(value = "/evenement/")
     public EventDTO modifyEvent(@RequestBody EventDTO eventDTO){
         return evenementService.modify(eventDTO);
     }
@@ -82,23 +83,4 @@ public class EvenementController {
     public void supprimerEvenement(@PathVariable Long id){
         evenementService.delete(id);
     }
-//
-//    @GetMapping("/insert")
-//    public String insert(@RequestParam String nom, @RequestParam(required = false) String dateString){
-//        if(dateString == null){
-//            dateString = "2020-12-10";
-//        }
-//
-//        DateTimeFormatter df = DateTimeFormatter.ISO_DATE;
-//        LocalDate date = LocalDate.parse(dateString, df);
-//        Evenement evenement=new Evenement(nom, date);
-//        evenementRepo.save(evenement);
-//        return String.format("Evenement %s enregistré le %s", nom, date);
-//    }
-//
-//    @GetMapping("/show")
-//    public String select(){
-//        List<Evenement> evenementList = (List<Evenement>) evenementRepo.findAll();
-//        return evenementList.stream().map(Evenement::getAffichage).collect(Collectors.joining(";"));
-//    }
 }

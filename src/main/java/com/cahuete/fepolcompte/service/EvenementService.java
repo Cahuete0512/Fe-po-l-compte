@@ -1,10 +1,10 @@
-package com.cahuete.FePolcompte.service;
+package com.cahuete.fepolcompte.service;
 
-import com.cahuete.FePolcompte.dto.EventDTO;
-import com.cahuete.FePolcompte.dto.ParticipantDTO;
-import com.cahuete.FePolcompte.dto.ResumedEvent;
-import com.cahuete.FePolcompte.entities.Evenement;
-import com.cahuete.FePolcompte.repository.EvenementRepo;
+import com.cahuete.fepolcompte.dto.EventDTO;
+import com.cahuete.fepolcompte.dto.ParticipantDTO;
+import com.cahuete.fepolcompte.dto.ResumedEvent;
+import com.cahuete.fepolcompte.entities.Evenement;
+import com.cahuete.fepolcompte.repository.EvenementRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -59,4 +59,5 @@ public class EvenementService {
     public EventDTO modify(EventDTO eventDTO) {
         return new EventDTO(evenementRepo.save(new Evenement(eventDTO)));
     }
+
 }

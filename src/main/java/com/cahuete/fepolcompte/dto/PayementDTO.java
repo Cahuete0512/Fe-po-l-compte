@@ -1,6 +1,6 @@
-package com.cahuete.FePolcompte.dto;
+package com.cahuete.fepolcompte.dto;
 
-import com.cahuete.FePolcompte.entities.Paiement;
+import com.cahuete.fepolcompte.entities.Paiement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

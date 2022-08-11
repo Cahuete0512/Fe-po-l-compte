@@ -1,4 +1,4 @@
-package com.cahuete.FePolcompte.config;
+package com.cahuete.fepolcompte.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;

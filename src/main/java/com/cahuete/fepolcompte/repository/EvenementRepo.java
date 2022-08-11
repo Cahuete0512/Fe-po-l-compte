@@ -1,7 +1,6 @@
-package com.cahuete.FePolcompte.repository;
+package com.cahuete.fepolcompte.repository;
 
-import com.cahuete.FePolcompte.dto.ParticipantDTO;
-import com.cahuete.FePolcompte.entities.Evenement;
+import com.cahuete.fepolcompte.entities.Evenement;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

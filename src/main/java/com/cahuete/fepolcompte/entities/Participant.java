@@ -1,6 +1,6 @@
-package com.cahuete.FePolcompte.entities;
+package com.cahuete.fepolcompte.entities;
 
-import com.cahuete.FePolcompte.dto.ParticipantDTO;
+import com.cahuete.fepolcompte.dto.ParticipantDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +22,7 @@ public class Participant {
     private String nom;
     private String prenom;
     private String email;
+    private String mdp;
 
     @ManyToMany(mappedBy = "participantList")
     private List<Evenement> evenementList = new ArrayList<>();
@@ -34,5 +35,6 @@ public class Participant {
         this.email = participantDTO.getEmail();
         this.nom = participantDTO.getForename();
         this.prenom = participantDTO.getSurname();
+        this.mdp = participantDTO.getMdp();
     }
 }

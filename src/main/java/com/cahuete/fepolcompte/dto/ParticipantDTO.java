@@ -1,6 +1,6 @@
-package com.cahuete.FePolcompte.dto;
+package com.cahuete.fepolcompte.dto;
 
-import com.cahuete.FePolcompte.entities.Participant;
+import com.cahuete.fepolcompte.entities.Participant;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,11 +11,13 @@ public class ParticipantDTO {
     private String email;
     private String surname;
     private String forename;
+    private String mdp;
 
     public ParticipantDTO(Participant participant){
         this.id = participant.getId();
         this.email = participant.getEmail();
         this.surname = participant.getNom();
         this.forename = participant.getPrenom();
+        this.mdp = participant.getMdp();
     }
 }

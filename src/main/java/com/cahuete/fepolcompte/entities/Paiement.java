@@ -1,4 +1,4 @@
-package com.cahuete.FePolcompte.entities;
+package com.cahuete.fepolcompte.entities;
 
 import lombok.Getter;
 import lombok.Setter;

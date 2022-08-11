@@ -1,9 +1,8 @@
-package com.cahuete.FePolcompte.service;
+package com.cahuete.fepolcompte.service;
 
-import com.cahuete.FePolcompte.dto.ParticipantDTO;
-import com.cahuete.FePolcompte.dto.ResumedEvent;
-import com.cahuete.FePolcompte.entities.Participant;
-import com.cahuete.FePolcompte.repository.ParticipantsRepo;
+import com.cahuete.fepolcompte.dto.ParticipantDTO;
+import com.cahuete.fepolcompte.entities.Participant;
+import com.cahuete.fepolcompte.repository.ParticipantsRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

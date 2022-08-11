@@ -1,7 +1,7 @@
-package com.cahuete.FePolcompte.entities;
+package com.cahuete.fepolcompte.entities;
 
 
-import com.cahuete.FePolcompte.dto.EventDTO;
+import com.cahuete.fepolcompte.dto.EventDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,7 +45,7 @@ public class Evenement {
         this.libelle = eventDTO.getName();
         this.date_creation = eventDTO.getDate();
         this.lieu= eventDTO.getPlace();
-        this.participantList = eventDTO.getParticipantDTOList().stream()
+        this.participantList = eventDTO.getParticipants().stream()
                 .map(Participant::new)
                 .collect(Collectors
                         .toList()

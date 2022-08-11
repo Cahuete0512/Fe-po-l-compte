@@ -1,8 +1,8 @@
-package com.cahuete.FePolcompte.controller;
+package com.cahuete.fepolcompte.controller;
 
-import com.cahuete.FePolcompte.dto.ParticipantDTO;
-import com.cahuete.FePolcompte.entities.Participant;
-import com.cahuete.FePolcompte.service.ParticipantService;
+import com.cahuete.fepolcompte.dto.ParticipantDTO;
+import com.cahuete.fepolcompte.entities.Participant;
+import com.cahuete.fepolcompte.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
