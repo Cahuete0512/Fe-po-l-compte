@@ -26,4 +26,7 @@ public class ParticipantService {
                 .collect(Collectors.toList());
     }
 
+    public Participant save(Participant participant) {
+        return participantsRepo.save(participant);
+    }
 }
