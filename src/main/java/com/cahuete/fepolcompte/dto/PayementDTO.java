@@ -18,6 +18,6 @@ public class PayementDTO {
         this.name = paiement.getLibelle();
         this.payment = paiement.getMontant();
         this.eventId = paiement.getEvenement().getId();
-        this.participantId = paiement.getParticipant().getId();
+        this.participantId = paiement.getCrediteur().getId();
     }
 }

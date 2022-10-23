@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * mon super evenement (ce commentaire est lié à la javadoc d'exemple de la méthode calculerRemboursement())
+ */
 @Getter
 @Setter
 @Entity

@@ -27,8 +27,11 @@ public class Participant {
     @ManyToMany(mappedBy = "participantList")
     private List<Evenement> evenementList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "participant")
+    @OneToMany(mappedBy = "crediteur")
     private List<Paiement> paiementList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "beneficiaire")
+    private List<Remboursement> remboursementList = new ArrayList<>();
 
     public Participant(ParticipantDTO participantDTO){
         this.id = participantDTO.getId();
