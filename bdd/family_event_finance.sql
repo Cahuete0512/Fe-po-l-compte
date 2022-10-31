@@ -64,7 +64,7 @@ CREATE TABLE `paiement` (
 -- Structure de la table `participant`
 --
 
-CREATE TABLE PARTICIPANT (
+CREATE TABLE participant (
   ID int(11) NOT NULL,
   NOM varchar(255) NOT NULL,
   PRENOM varchar(255) NOT NULL
@@ -76,7 +76,7 @@ CREATE TABLE PARTICIPANT (
 --
 -- Index pour la table `evenement`
 --
-ALTER TABLE EVENEMENT
+ALTER TABLE evenement
   ADD PRIMARY KEY (ID);
 
 --
